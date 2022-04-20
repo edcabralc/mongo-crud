@@ -1,0 +1,45 @@
+{{>partials/header}}
+
+<div class="uk-container">
+  <h1>Usuários</h1>
+  <hr />
+
+  <table class="uk-table uk-table-striped">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Sobrenome</th>
+        <th>Email</th>
+        <th>Idade</th>
+        <th>Interesses</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#users}}
+      <tr>
+        <td>{{ name.firstname }}</td>
+        <td>{{ name.lastname }}</td>
+        <td>{{ email }}</td>
+        <td>{{ age }}</td>
+        <td>
+          {{#interests}}
+          <span class="uk-label">{{.}}</span
+          >{{/interests}}
+        </td>
+        <td>
+          <a class="uk-button uk-button-default" href="user/{{ id }}/update"
+            >Alterar</a
+          >
+        </td>
+        <td>
+          <a class="uk-button uk-button-danger" href="user/{{ id }}/remove"
+            ><span uk-icon="icon: trash"></span> Excluir</a
+          >
+        </td>
+      </tr>
+      {{/users}}
+    </tbody>
+  </table>
+</div>
+
+{{>partials/footer}}
